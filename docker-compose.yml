@@ -24,7 +24,6 @@ services:
     depends_on:
       - db
 
-      
   app:
     container_name: app2
     build: .
@@ -32,7 +31,7 @@ services:
     volumes:
       - .:/app
     ports:
-      - 8000:8000  
+      - ${PORT:-8000}:8000  # Change this line
     depends_on:
       - db
-    restart: always    
+    restart: always
